@@ -21,6 +21,14 @@ https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/catalog.
 
 ## 修改和发布
 
-编辑 `catalog.json` 中 `connectors` 数组的条目，保留顶层 `schemaVersion: 1`。每个条目的 `id` 必须唯一；名称、简介、分类和图标会出现在市场卡片中。`icon` 可使用简短的 Unicode 符号，或公开可访问的 HTTPS 图片地址。原目录中的 `/mcp-connector/ui/assets/` 路径属于另一个插件，当前面板会显示占位图标；可以逐条改成自己的 HTTPS 图片地址。
+编辑 `catalog.json` 中 `connectors` 数组的条目，保留顶层 `schemaVersion: 1`。每个条目的 `id` 必须唯一；名称、简介、分类和图标会出现在市场卡片中。`icon` 使用此仓库 `assets/` 下的公开 HTTPS 图片地址。
+
+## 图标维护
+
+107 张卡片的图标对应 `assets/` 中的 107 个文件；原有 emoji 和其他插件的资源路径已替换。官网、官方产品 CDN、项目发布者及官网 favicon 缓存的原始地址记录在 [icon-sources.json](icon-sources.json)。图片用于识别相应产品或数据源，商标归各自权利人所有。
+
+`mediakit`、`starwell-world-statistics` 和 `stock-analysis` 的项目主页没有发布独立标志，使用 GitHub 官方图标表示其代码仓库，避免使用维护者的个人照片。其他社区连接器借用其所接服务的官方标志时，仍以卡片中的 `vendor` 和说明标识实际连接器发布者。
+
+更换图标时，把新图片放入 `assets/`，同步修改该条目的 `icon` URL 和 `icon-sources.json` 来源记录，并将三个文件一起推送。GitHub Raw 必须能无需登录访问图片。
 
 提交并推送到 GitHub 的 `main` 分支后，DSH 会从上面的地址读取新版本。面板可手动刷新；正常读取有 60 秒缓存。连接器的服务地址、命令和认证字段也在目录内，修改前应核对其来源及可用性。目录不能包含令牌、密码等实际凭据。
