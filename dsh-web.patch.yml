@@ -1,5 +1,5 @@
-# Copy this entry into ~/.dsh/profiles/web/cordis.patch.yml after catalog.json is public.
+# Copy this entry into ~/.dsh/profiles/web/cordis.patch.yml.
 - id: skill-mcp-panel
   config:
     mcpCatalog:
-      url: https://raw.githubusercontent.com/mazai-xiangji/dsh-skill-mcp-panel/main/mcp-market-catalog/catalog.json
+      url: https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/catalog.json

@@ -7,7 +7,7 @@
 公开 HTTPS 地址：
 
 ```text
-https://raw.githubusercontent.com/mazai-xiangji/dsh-skill-mcp-panel/main/mcp-market-catalog/catalog.json
+https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/catalog.json
 ```
 
 在 Web profile 的 `cordis.patch.yml` 中给 `skill-mcp-panel` 设置（可复制 [dsh-web.patch.yml](dsh-web.patch.yml)）：
@@ -16,7 +16,7 @@ https://raw.githubusercontent.com/mazai-xiangji/dsh-skill-mcp-panel/main/mcp-mar
 - id: skill-mcp-panel
   config:
     mcpCatalog:
-      url: https://raw.githubusercontent.com/mazai-xiangji/dsh-skill-mcp-panel/main/mcp-market-catalog/catalog.json
+      url: https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/catalog.json
 ```
 
 ## 修改和发布
