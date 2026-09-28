@@ -1,6 +1,18 @@
 {
-  "retrievedAt": "2026-09-27",
+  "retrievedAt": "2026-09-28",
   "assets": [
+    {
+      "id": "agentearth",
+      "site": "https://agentearth.ai/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://agentearth.ai/logo.ico",
+      "asset": "agentearth.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "48x48",
+      "finalUrl": "https://agentearth.ai/logo.ico",
+      "sha256": "b4aa28694f9d23476e1797d092c010cfcfbd690291372512f0200f6b3e4e90c7"
+    },
     {
       "id": "akshare",
       "site": "https://akshare.akfamily.xyz/",
@@ -12,6 +24,18 @@
       "dimensions": "32x32",
       "finalUrl": "https://akshare.akfamily.xyz/favicon.ico",
       "sha256": "4572d525a087c261031a23447de6eaaa37e399bd8283f6aaed7f1f23a66c9efd"
+    },
+    {
+      "id": "alphapai",
+      "site": "https://alphapai-idv.rabyte.cn/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://alphapai-idv.rabyte.cn/favicon.ico",
+      "asset": "alphapai.png",
+      "kind": "png",
+      "ext": "png",
+      "dimensions": "128x128",
+      "finalUrl": "https://alphapai-idv.rabyte.cn/favicon.ico",
+      "sha256": "51b197f056b01253eb3e092bfd51bfabfa046d6e4b1a4922014d5f230ac2f9a7"
     },
     {
       "id": "amap",
@@ -98,6 +122,18 @@
       "sha256": "5a777c988503230fcf98c8d7377194078fffb95e98c5d95755223c95a503de7c"
     },
     {
+      "id": "datayes",
+      "site": "https://mcp.datayes.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://mcp.datayes.com/favicon.ico",
+      "asset": "datayes.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "32x32",
+      "finalUrl": "https://mcp.datayes.com/favicon.ico",
+      "sha256": "fded9c8056d3d8672b6bfba9a500c9464a9b747aa5be3859d1f4a1099bf3b34f"
+    },
+    {
       "id": "dingtalk",
       "site": "https://www.dingtalk.com/",
       "sourceKind": "official-site-favicon-cache",
@@ -122,6 +158,18 @@
       "sha256": "c8e2b5538950b8204438bf1cb21f1dd41416794ce3822e2ee8b50cb54b7b2e83"
     },
     {
+      "id": "eastmoney-miaoxiang",
+      "site": "https://www.eastmoney.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://g1.dfcfw.com/g1/special/Apple_ico.png",
+      "asset": "eastmoney-miaoxiang.png",
+      "kind": "png",
+      "ext": "png",
+      "dimensions": "256x256",
+      "finalUrl": "https://g1.dfcfw.com/g1/special/Apple_ico.png",
+      "sha256": "c8e2b5538950b8204438bf1cb21f1dd41416794ce3822e2ee8b50cb54b7b2e83"
+    },
+    {
       "id": "edgeone-pages",
       "site": "https://edgeone.ai/",
       "sourceKind": "official-site",
@@ -132,6 +180,18 @@
       "dimensions": "128x128",
       "finalUrl": "https://edgeone.ai/128.png",
       "sha256": "7eb3d5360193cdbfd6204266fdaa11eed4f4302e4217af14e001465e8ec5539f"
+    },
+    {
+      "id": "efunds-official",
+      "site": "https://www.efunds.com.cn/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://www.efunds.com.cn/assets/images/favicon.ico",
+      "asset": "efunds-official.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "16x16",
+      "finalUrl": "https://www.efunds.com.cn/assets/images/favicon.ico",
+      "sha256": "2804c0e872f55010e7cbae4ea10c8f5a913ba4a9b33827ff0916a33e1aa932d5"
     },
     {
       "id": "feishu",
@@ -146,6 +206,30 @@
       "sha256": "69da9be6053530750202e4f674d621274bd86a9fc23f44a16c5e6c7aa56dfd9e"
     },
     {
+      "id": "finchina",
+      "site": "https://mcp.finchina.com/intro",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://mcp.finchina.com/logo192.png",
+      "asset": "finchina.png",
+      "kind": "png",
+      "ext": "png",
+      "dimensions": "192x192",
+      "finalUrl": "https://mcp.finchina.com/logo192.png",
+      "sha256": "34b9d4309bebb083b079d5c07ca431fddd2f761fe57f8a5c1bd4e1d8bb57febb"
+    },
+    {
+      "id": "finenter-research",
+      "site": "https://www.comein.cn/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://resource.comein.cn/comein-files/img/default/favicon.ico",
+      "asset": "finenter-research.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "64x64",
+      "finalUrl": "https://resource.comein.cn/comein-files/img/default/favicon.ico",
+      "sha256": "ada10d7e0590402ad11cf8fa7725f28552e7ba6092ca165ca5cb7fe73c3a1ecf"
+    },
+    {
       "id": "gangtise",
       "site": "https://www.gangtise.com/",
       "sourceKind": "official-site",
@@ -156,6 +240,30 @@
       "dimensions": "64x68",
       "finalUrl": "https://www.gangtise.com/favicon.png",
       "sha256": "cd9803bc74eff125440d30a212811ab55468962973925d22447c2730a2a09526"
+    },
+    {
+      "id": "gangtise-openapi",
+      "site": "https://www.gangtise.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://www.gangtise.com/favicon.png",
+      "asset": "gangtise.png",
+      "kind": "png",
+      "ext": "png",
+      "dimensions": "64x68",
+      "finalUrl": "https://www.gangtise.com/favicon.png",
+      "sha256": "cd9803bc74eff125440d30a212811ab55468962973925d22447c2730a2a09526"
+    },
+    {
+      "id": "gildata",
+      "site": "https://www.gildata.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://www.gildata.com/assets/logo-DSZmfQOO.png",
+      "asset": "gildata.png",
+      "kind": "png",
+      "ext": "png",
+      "dimensions": "247x87",
+      "finalUrl": "https://www.gildata.com/assets/logo-DSZmfQOO.png",
+      "sha256": "dbe11457fd0885da0a90081cd3b4f8c95483374190ab3548ed132ec4c544d6fe"
     },
     {
       "id": "gitee",
@@ -170,6 +278,18 @@
       "sha256": "2d1a42d094476e3c893e430032d5371a40af1cc2a025e089383a94bf992c671e"
     },
     {
+      "id": "hithink-finance",
+      "site": "https://fuyao.aicubes.cn/admin/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://fuyao.aicubes.cn/img/favicon.png",
+      "asset": "hithink-finance.png",
+      "kind": "png",
+      "ext": "png",
+      "dimensions": "1024x1024",
+      "finalUrl": "https://fuyao.aicubes.cn/img/favicon.png",
+      "sha256": "5971a8bca07cc404cb0a2b43e6ec11a20d08d67d402c81913aa164b55e217cc0"
+    },
+    {
       "id": "huayu-legal",
       "site": "https://open.chineselaw.com/",
       "sourceKind": "official-site",
@@ -180,6 +300,18 @@
       "dimensions": "vector",
       "finalUrl": "https://open.chineselaw.com/favicon.svg",
       "sha256": "319713b8f403fe2e61574a99fae7e29ceda8940aea51579dd317bf56dc564e2f"
+    },
+    {
+      "id": "huize-insurance",
+      "site": "https://www.huize.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://www.huize.com/favicon.ico",
+      "asset": "huize-insurance.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "32x32",
+      "finalUrl": "https://www.huize.com/favicon.ico",
+      "sha256": "7ecbdb917ff0b610010287fd4cdaa0f8a44cc6374c20a20ccf9fb2ed266b4214"
     },
     {
       "id": "jinshuju-forms",
@@ -240,6 +372,18 @@
       "dimensions": "180x180",
       "finalUrl": "https://mail.163.com/apple-touch-icon.png",
       "sha256": "352ec25db7506013bb18003ff70bdcf40aaa5534aeed3acd7854b8e1d62f6532"
+    },
+    {
+      "id": "orientfutures",
+      "site": "https://commosmart.orientfutures.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://commosmart.orientfutures.com/favicon.ico",
+      "asset": "orientfutures.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "16x16",
+      "finalUrl": "https://commosmart.orientfutures.com/favicon.ico",
+      "sha256": "168682eea0fd2bb2384ac38433a1452bcce05c012f3e192fcd563809a3320680"
     },
     {
       "id": "patsnap",
@@ -363,6 +507,18 @@
       "note": "Project does not publish a standalone logo; GitHub mark identifies its source repository."
     },
     {
+      "id": "sumscope",
+      "site": "https://www.sumscope.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://www.sumscope.com/favicon.ico",
+      "asset": "sumscope.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "64x64",
+      "finalUrl": "https://www.sumscope.com/favicon.ico",
+      "sha256": "b835726ad9c09b483a5ee72009a479ef7878632efe5dffeda1da19f025e85b41"
+    },
+    {
       "id": "tencent-docs",
       "site": "https://docs.qq.com/",
       "sourceKind": "official-site",
@@ -373,6 +529,18 @@
       "dimensions": "32x32",
       "finalUrl": "https://docs.idqqimg.com/tim/docs/desktop/favicon.ico",
       "sha256": "a41f0618d62d19d7907e4976a96985c6dd459984545db5924524b4e2f1e5ff44"
+    },
+    {
+      "id": "tencent-westock",
+      "site": "https://stockbuddy.qq.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://stockbuddy.qq.com/logo.jpg",
+      "asset": "tencent-westock.jpg",
+      "kind": "jpeg",
+      "ext": "jpg",
+      "dimensions": "1648x1648",
+      "finalUrl": "https://stockbuddy.qq.com/logo.jpg",
+      "sha256": "1cfbdb8952589958aec8f944252a322a77b0d709eda4600906eb8309e1a525bd"
     },
     {
       "id": "tongdaxin-mcp",
@@ -387,6 +555,18 @@
       "sha256": "84d460bbf42a5546814b3c44456c97656380cfae4e05dd5a12aff5a5490893b2"
     },
     {
+      "id": "tongzhou-research",
+      "site": "https://mcp-gateway.textmind-gz.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://mcp-gateway.textmind-gz.com/logo.png",
+      "asset": "tongzhou-research.png",
+      "kind": "png",
+      "ext": "png",
+      "dimensions": "42x44",
+      "finalUrl": "https://mcp-gateway.textmind-gz.com/logo.png",
+      "sha256": "5d7846c7f37fd191ffe9e986e22c94a391266655b06a5659b44322754db4085f"
+    },
+    {
       "id": "tushare",
       "site": "https://tushare.pro/",
       "sourceKind": "official-site",
@@ -399,6 +579,30 @@
       "sha256": "27cfe2332e48b510424f3a16734348f39ec2be779aedcb22e5198d298ee0284d"
     },
     {
+      "id": "tushare-pro",
+      "site": "https://tushare.pro/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://tushare.pro/static/frontend/images/favicon-192x192.png?v=811d9139fa2ea47f5595907da1f3c34d",
+      "asset": "tushare.png",
+      "kind": "png",
+      "ext": "png",
+      "dimensions": "192x192",
+      "finalUrl": "https://tushare.pro/static/frontend/images/favicon-192x192.png?v=811d9139fa2ea47f5595907da1f3c34d",
+      "sha256": "27cfe2332e48b510424f3a16734348f39ec2be779aedcb22e5198d298ee0284d"
+    },
+    {
+      "id": "wallstreetcn",
+      "site": "https://wallstreetcn.com/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://static.wscn.net/wscn/_static/favicon.png",
+      "asset": "wallstreetcn.png",
+      "kind": "png",
+      "ext": "png",
+      "dimensions": "200x200",
+      "finalUrl": "https://static.wscn.net/wscn/_static/favicon.png",
+      "sha256": "687c5ba7ed1c6423729d2a3ca39ac11fe71810caaf315c871709478a211a1bc3"
+    },
+    {
       "id": "wecom",
       "site": "https://work.weixin.qq.com/",
       "sourceKind": "official-site-favicon-cache",
@@ -409,6 +613,18 @@
       "dimensions": "48x48",
       "finalUrl": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://work.weixin.qq.com&size=128",
       "sha256": "69025ba6b79e2aed0d8e36ed73dadadb9daeaa170b4240ee5e841f399f80c2d4"
+    },
+    {
+      "id": "wind-alice",
+      "site": "https://www.wind.com.cn/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://www.wind.com.cn/favicon.ico",
+      "asset": "wind-stock-data.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "16x16",
+      "finalUrl": "https://www.wind.com.cn/favicon.ico",
+      "sha256": "8e1da98d00206dc5cf6fa9f62668a089a8020672a657b61dd6790fac741bbc02"
     },
     {
       "id": "wind-stock-data",
@@ -433,6 +649,30 @@
       "dimensions": "32x32",
       "finalUrl": "https://www.wps.cn/favicon.ico",
       "sha256": "4fb684e63524072d2ce344fd56ecbdd8f402d669dc71e92d6389221473c32afa"
+    },
+    {
+      "id": "xinhua-finance",
+      "site": "https://client.cnfic.com.cn/web/web/",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://client.cnfic.com.cn/web/web/favicon.ico",
+      "asset": "xinhua-finance.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "32x32",
+      "finalUrl": "https://client.cnfic.com.cn/web/web/favicon.ico",
+      "sha256": "cafb03bf67e97f95d9a6120d78eabfe28cbe7c2920a0742c574767e9199c00ec"
+    },
+    {
+      "id": "yingmi-mcp",
+      "site": "https://qieman.com/mcp",
+      "sourceKind": "official-site",
+      "sourceUrl": "https://cdn2.qieman.com/static/favicon.ico",
+      "asset": "yingmi-mcp.ico",
+      "kind": "ico",
+      "ext": "ico",
+      "dimensions": "32x32",
+      "finalUrl": "https://cdn2.qieman.com/static/favicon.ico",
+      "sha256": "d99e1e1c15da673e8958f73ad868b5adb07d5a9c44b28741a1041b28c4290436"
     },
     {
       "id": "yingmi-wealth-management",

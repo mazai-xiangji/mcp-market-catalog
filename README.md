@@ -25,7 +25,7 @@ https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/catalog.
 
 ## 图标维护
 
-37 张卡片的图标对应 `assets/` 中的 37 个文件；新加入的同花顺卡片暂用面板默认占位图标。原有 emoji 和其他插件的资源路径已替换。官网、官方产品 CDN、项目发布者及官网 favicon 缓存的原始地址记录在 [icon-sources.json](icon-sources.json)。图片用于识别相应产品或数据源，商标归各自权利人所有。
+57 张卡片均有图标，对应 `assets/` 中的 54 个文件；同品牌连接器可复用已有图标。原有 emoji 和其他插件的资源路径已替换。官网、官方产品 CDN、项目发布者及官网 favicon 缓存的原始地址记录在 [icon-sources.json](icon-sources.json)。图片用于识别相应产品或数据源，商标归各自权利人所有。
 
 用户提出的金融 MCP 候选及核对结果见 [金融 MCP 候选核对](FINANCIAL_CANDIDATES.md)。公开端点、认证模式及渠道限制按表逐项标注；尚未用真实用户账号验证付费数据权限。
 

@@ -1,9 +1,21 @@
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { test } from 'node:test'
 
 const catalog = JSON.parse(readFileSync(new URL('../catalog.json', import.meta.url), 'utf8'))
 const ids = new Set(catalog.connectors.map(connector => connector.id))
+const iconSources = JSON.parse(readFileSync(new URL('../icon-sources.json', import.meta.url), 'utf8'))
+
+test('every published card has a local icon and a recorded source', () => {
+  const sourcesById = new Map(iconSources.assets.map(source => [source.id, source]))
+  for (const connector of catalog.connectors.filter(item => item.published)) {
+    const source = sourcesById.get(connector.id)
+    assert.ok(source, `missing icon source for ${connector.id}`)
+    assert.ok(connector.icon, `missing icon for ${connector.id}`)
+    assert.ok(connector.icon.endsWith(`/assets/${source.asset}`), `icon/source mismatch for ${connector.id}`)
+    assert.ok(existsSync(new URL(`../assets/${source.asset}`, import.meta.url)), `missing icon file for ${connector.id}`)
+  }
+})
 
 test('the published market contains the selected domestic connectors', () => {
   const expected = new Set([
