@@ -1478,6 +1478,8 @@
           "serverName": "jinshuju_forms",
           "url": "https://jinshuju.net/mcp",
           "transport": "streamable-http",
+          "oauthResource": "https://jinshuju.net",
+          "oauthMetadataUrl": "https://jinshuju.net/.well-known/oauth-protected-resource",
           "headers": {
             "Accept": "application/json, text/event-stream"
           }

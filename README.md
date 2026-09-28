@@ -29,6 +29,8 @@ https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/catalog.
 
 用户提出的金融 MCP 候选及核对结果见 [金融 MCP 候选核对](FINANCIAL_CANDIDATES.md)。公开端点、认证模式及渠道限制按表逐项标注；尚未用真实用户账号验证付费数据权限。
 
+金数据 `jinshuju-forms` 的 OAuth 受保护资源标识为 `https://jinshuju.net`，元数据发布在站点根路径 `/.well-known/oauth-protected-resource`；MCP 服务端点仍为 `/mcp`。这两个地址不能互换，否则授权发现会返回 404。
+
 `mediakit`、`starwell-world-statistics` 和 `stock-analysis` 的项目主页没有发布独立标志，使用 GitHub 官方图标表示其代码仓库，避免使用维护者的个人照片。其他社区连接器借用其所接服务的官方标志时，仍以卡片中的 `vendor` 和说明标识实际连接器发布者。
 
 更换图标时，把新图片放入 `assets/`，同步修改该条目的 `icon` URL 和 `icon-sources.json` 来源记录，并将三个文件一起推送。GitHub Raw 必须能无需登录访问图片。

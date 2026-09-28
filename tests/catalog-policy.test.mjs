@@ -52,6 +52,12 @@ test('anonymous and OAuth finance endpoints preserve their observed authorizatio
   }
 })
 
+test('Jinshuju OAuth uses its published root resource metadata', () => {
+  const connector = catalog.connectors.find(item => item.id === 'jinshuju-forms')
+  assert.equal(connector?.servers[0].oauthResource, 'https://jinshuju.net')
+  assert.equal(connector?.servers[0].oauthMetadataUrl, 'https://jinshuju.net/.well-known/oauth-protected-resource')
+})
+
 test('the official HiThink connector matches the published MCP endpoints', () => {
   const connector = catalog.connectors.find(item => item.id === 'hithink-finance')
   assert.ok(connector)
