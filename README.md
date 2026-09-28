@@ -1,6 +1,6 @@
 # 自维护 MCP 市场
 
-此目录供 `grg-skill-mcp-panel` 的 MCP 市场读取。`catalog.json` 初始复制自 [dsh-mcp-connector-registry](https://github.com/duhu2000/dsh-mcp-connector-registry) 的 `main/catalog.json`（2026-09-27 下载，107 个连接器）；上游 MIT 许可见 [LICENSE.upstream](LICENSE.upstream)。从此以后，本目录独立维护，不会自动同步上游。
+此目录供 `grg-skill-mcp-panel` 的 MCP 市场读取。`catalog.json` 初始复制自 [dsh-mcp-connector-registry](https://github.com/duhu2000/dsh-mcp-connector-registry) 的 `main/catalog.json`（2026-09-27 下载，107 个连接器）；上游 MIT 许可见 [LICENSE.upstream](LICENSE.upstream)。当前目录保留国内服务及相关社区连接器，并收录已核实接入说明的同花顺官方金融数据服务，共 38 个连接器。此目录独立维护，不会自动同步上游。
 
 ## DSH 地址
 
@@ -25,7 +25,9 @@ https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/catalog.
 
 ## 图标维护
 
-107 张卡片的图标对应 `assets/` 中的 107 个文件；原有 emoji 和其他插件的资源路径已替换。官网、官方产品 CDN、项目发布者及官网 favicon 缓存的原始地址记录在 [icon-sources.json](icon-sources.json)。图片用于识别相应产品或数据源，商标归各自权利人所有。
+37 张卡片的图标对应 `assets/` 中的 37 个文件；新加入的同花顺卡片暂用面板默认占位图标。原有 emoji 和其他插件的资源路径已替换。官网、官方产品 CDN、项目发布者及官网 favicon 缓存的原始地址记录在 [icon-sources.json](icon-sources.json)。图片用于识别相应产品或数据源，商标归各自权利人所有。
+
+用户提出的金融 MCP 候选及核对结果见 [金融 MCP 候选核对](FINANCIAL_CANDIDATES.md)。没有可核实的公开连接地址、启动命令和鉴权说明时，不会仅凭产品名称加入可连接卡片。
 
 `mediakit`、`starwell-world-statistics` 和 `stock-analysis` 的项目主页没有发布独立标志，使用 GitHub 官方图标表示其代码仓库，避免使用维护者的个人照片。其他社区连接器借用其所接服务的官方标志时，仍以卡片中的 `vendor` 和说明标识实际连接器发布者。
 
