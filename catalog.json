@@ -3,6 +3,45 @@
   "connectors": [
     {
       "schemaVersion": 1,
+      "id": "agentearth",
+      "name": "AgentEarth 金融电商社媒工具集",
+      "vendor": "AgentEarth",
+      "category": "金融投资",
+      "summary": "金融、电商、社媒等聚合工具",
+      "description": "使用 AgentEarth 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://agentearth.ai/r/8oo9zmDn",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "api-key",
+        "credentialFields": [
+          {
+            "key": "apiKey",
+            "label": "AgentEarth API Key",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "apiKeyHeader": "X-Api-Key",
+        "credentialHelpLabel": "点击此处获取 API Key"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "agentearth",
+          "transport": "streamable-http",
+          "url": "https://agentearth.ai/mcp-server/"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
       "id": "akshare",
       "name": "AKShare",
       "vendor": "AKShare 社区",
@@ -35,6 +74,39 @@
             "akshare-one-mcp"
           ],
           "transport": "stdio"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "alphapai",
+      "name": "Alpha 派投研助手",
+      "vendor": "Rabyte Alpha 派",
+      "category": "金融投资",
+      "summary": "行业与公司研究、报告辅助",
+      "description": "使用 Rabyte Alpha 派 的 MCP 地址。服务端公开的 OAuth 元数据声明授权码、PKCE S256 和公开客户端动态注册；需使用自己的账号完成浏览器授权。元数据位置已经核实，未用真实账号完成授权与工具调用。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "OAuth"
+      ],
+      "published": true,
+      "featured": false,
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "oauth2-pkce",
+        "issuer": "https://alphapai-idv.rabyte.cn/alpha/open-api/v1/personal/oauth",
+        "scope": "read",
+        "clientName": "DSH MCP Panel",
+        "tokenEndpointAuthMethod": "none"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "alphapai",
+          "transport": "streamable-http",
+          "url": "https://alphapai-idv.rabyte.cn/alpha/open-api/v1/personal/mcp",
+          "oauthMetadataUrl": "https://alphapai-idv.rabyte.cn/alpha/open-api/v1/personal/oauth/.well-known/oauth-protected-resource"
         }
       ]
     },
@@ -524,6 +596,47 @@
     },
     {
       "schemaVersion": 1,
+      "id": "datayes",
+      "name": "通联数据 MCP",
+      "vendor": "通联数据 DataYes",
+      "category": "金融投资",
+      "summary": "A 股、港股、基金与宏观数据",
+      "description": "使用 通联数据 DataYes 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://mcp.datayes.com/#/personal-center",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "bearer",
+        "credentialFields": [
+          {
+            "key": "token",
+            "label": "通联 Token",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何获取通联数据 MCP Token？"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "datayes",
+          "transport": "streamable-http",
+          "url": "https://dataapi-mcp-server.datayes.com/datayes-data/mcp",
+          "headers": {
+            "Accept": "application/json, text/event-stream"
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
       "id": "dingtalk",
       "name": "钉钉工作台",
       "vendor": "钉钉",
@@ -689,6 +802,38 @@
     },
     {
       "schemaVersion": 1,
+      "id": "eastmoney-miaoxiang",
+      "name": "东方财富妙想 MCP",
+      "vendor": "东方财富",
+      "category": "金融投资",
+      "summary": "股票、基金、宏观与投研数据查询",
+      "description": "使用 东方财富 的远程 MCP 地址。服务端返回 OAuth 受保护资源元数据，支持 PKCE S256 与公开客户端动态注册；需使用自己的账号完成浏览器授权。尚未进行真实账号登录验证。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商 MCP"
+      ],
+      "published": true,
+      "featured": false,
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "oauth2-pkce",
+        "issuer": "https://agent.dfcfs.com",
+        "scope": "mcp:tools",
+        "clientName": "DSH MCP Panel",
+        "tokenEndpointAuthMethod": "none"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "eastmoney_miaoxiang",
+          "transport": "streamable-http",
+          "url": "https://mxapi.eastmoney.com/mxds/v2/mcp"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
       "id": "edgeone-pages",
       "name": "腾讯云 EdgeOne Pages",
       "vendor": "腾讯云 EdgeOne",
@@ -736,6 +881,34 @@
           "title": "预审公开部署",
           "text": "准备通过 EdgeOne Pages 发布“{{contentSummary}}”。先检查待发布 HTML 是否含密钥、个人信息、内部地址或未授权素材，说明公开链接的影响并等待我明确确认；不要立即部署",
           "server": "edgeone-pages"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "efunds-official",
+      "name": "易方达基金 MCP",
+      "vendor": "易方达基金",
+      "category": "金融投资",
+      "summary": "基金概况、业绩、持仓与投研观点",
+      "description": "使用 易方达基金 的远程 MCP 地址。已在无凭据标准 MCP initialize 请求中确认可访问；工具能力和数据权限取决于服务端。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商 MCP"
+      ],
+      "published": true,
+      "featured": false,
+      "probeStatus": "reachable",
+      "auth": {
+        "mode": "none"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "efunds_official",
+          "transport": "streamable-http",
+          "url": "https://sc.efunds.com.cn/api/csai-mcp-service/mcp/"
         }
       ]
     },
@@ -817,6 +990,78 @@
     },
     {
       "schemaVersion": 1,
+      "id": "finchina",
+      "name": "财汇金融与风险数据",
+      "vendor": "财汇 FinChina",
+      "category": "金融投资",
+      "summary": "企业、证券、宏观与风险数据",
+      "description": "使用 财汇 FinChina 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://mcp.finchina.com/intro",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "api-key",
+        "credentialFields": [
+          {
+            "key": "apiKey",
+            "label": "财汇 API Key",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "apiKeyHeader": "x-api-key",
+        "credentialHelpLabel": "前往财汇MCP官网获取密钥"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "finchina",
+          "transport": "streamable-http",
+          "url": "https://mcp.finchina.com/finchina-data-mcp-server/mcp"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "finenter-research",
+      "name": "进门投研 MCP",
+      "vendor": "进门财经",
+      "category": "金融投资",
+      "summary": "路演、研报与金融市场数据",
+      "description": "使用 进门财经 的 MCP 地址。服务端公开的 OAuth 元数据声明授权码、PKCE S256 和公开客户端动态注册；需使用自己的账号完成浏览器授权。元数据位置已经核实，未用真实账号完成授权与工具调用。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "OAuth"
+      ],
+      "published": true,
+      "featured": false,
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "oauth2-pkce",
+        "issuer": "https://server.comein.cn",
+        "scope": "mcp-server-brm:data:query",
+        "clientName": "DSH MCP Panel",
+        "tokenEndpointAuthMethod": "none"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "finenter_research",
+          "transport": "streamable-http",
+          "url": "https://mcp-server-global.comein.cn/mcp-servers/mcp-server-brm",
+          "oauthMetadataUrl": "https://server.comein.cn/.well-known/oauth-protected-resource/mcp-server-brm"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
       "id": "gangtise",
       "name": "Gangtise",
       "vendor": "Gangtise",
@@ -869,6 +1114,95 @@
           "title": "检索机构调研",
           "text": "检索与目标公司相关的近期机构调研和专家纪要，先列出候选内容与费用信息；未经我确认不要调用付费能力",
           "server": "gangtise"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "gangtise-openapi",
+      "name": "Gangtise 投研 MCP",
+      "vendor": "Gangtise",
+      "category": "金融投资",
+      "summary": "机构观点、研报与结构化市场数据",
+      "description": "使用 Gangtise 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://open-platform.gangtise.com/",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "api-key",
+        "credentialFields": [
+          {
+            "key": "accessKey",
+            "label": "Access Key",
+            "required": true,
+            "secret": true
+          },
+          {
+            "key": "secretKey",
+            "label": "Secret Key",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何使用 Gangtise投研 MCP并获取授权Key"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "gangtise_openapi",
+          "transport": "streamable-http",
+          "url": "https://openapi.gangtise.com/application/open-mcp/",
+          "credentialHeaderBindings": {
+            "accessKey": "accessKey",
+            "secretKey": "secretKey"
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "gildata",
+      "name": "恒生聚源 MCP",
+      "vendor": "恒生聚源",
+      "category": "金融投资",
+      "summary": "金融数据、研报、公告与条件选股",
+      "description": "使用 恒生聚源 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://www.feishu.cn/docx/MeCmd4q0Yo7nmkx9D8IcMYbknob",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "api-key",
+        "credentialFields": [
+          {
+            "key": "token",
+            "label": "Access Token",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何使用恒生聚源 MCP 并获取授权 token"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "gildata",
+          "transport": "streamable-http",
+          "url": "https://api.gildata.com/mcp-servers/aidata-assistant-srv-tool",
+          "credentialQueryBindings": {
+            "token": "token"
+          }
         }
       ]
     },
@@ -1067,6 +1401,34 @@
         {
           "title": "检索法规与案例",
           "text": "先检索与问题相关的现行法规，再查找相近案例；标注来源、发布日期和效力状态，不替代律师意见"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "huize-insurance",
+      "name": "慧择保险产品推荐",
+      "vendor": "慧择保险",
+      "category": "金融投资",
+      "summary": "保险产品筛选与比较",
+      "description": "使用 慧择保险 的远程 MCP 地址。已在无凭据标准 MCP initialize 请求中确认可访问；工具能力和数据权限取决于服务端。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商 MCP"
+      ],
+      "published": true,
+      "featured": false,
+      "probeStatus": "reachable",
+      "auth": {
+        "mode": "none"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "huize_insurance",
+          "transport": "streamable-http",
+          "url": "https://hzc-prosearch.hzins.com/product-recommendation/mcp"
         }
       ]
     },
@@ -1388,6 +1750,34 @@
           "title": "整理未读邮件",
           "text": "只读取并汇总最近的未读邮件，按发件人和主题分组；未经我确认不要发送、移动或删除邮件",
           "server": "netease-mail"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "orientfutures",
+      "name": "东证期货知识库",
+      "vendor": "东证期货",
+      "category": "金融投资",
+      "summary": "期货知识、交易规则与合约资料",
+      "description": "使用 东证期货 的远程 MCP 地址。已在无凭据标准 MCP initialize 请求中确认可访问；工具能力和数据权限取决于服务端。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商 MCP"
+      ],
+      "published": true,
+      "featured": false,
+      "probeStatus": "reachable",
+      "auth": {
+        "mode": "none"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "orientfutures",
+          "transport": "streamable-http",
+          "url": "https://commosmart.orientfutures.com/mcp/knowledge-base"
         }
       ]
     },
@@ -2080,6 +2470,45 @@
     },
     {
       "schemaVersion": 1,
+      "id": "sumscope",
+      "name": "森浦 qeubee 金融数据",
+      "vendor": "森浦 qeubee",
+      "category": "金融投资",
+      "summary": "债券估值、行情与宏观数据",
+      "description": "使用 森浦 qeubee 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://www.sumscope.com/app/apply.html",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "api-key",
+        "credentialFields": [
+          {
+            "key": "accessKey",
+            "label": "X-Access-Key",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "apiKeyHeader": "X-Access-Key",
+        "credentialHelpLabel": "如何获取 X_ACCESS_KEY？"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "sumscope",
+          "transport": "streamable-http",
+          "url": "https://data-api.qeubee.cn/sumscope/common/mcp/stream"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
       "id": "tencent-docs",
       "name": "腾讯文档",
       "vendor": "腾讯",
@@ -2132,6 +2561,39 @@
     },
     {
       "schemaVersion": 1,
+      "id": "tencent-westock",
+      "name": "腾讯自选股 MCP",
+      "vendor": "腾讯自选股",
+      "category": "金融投资",
+      "summary": "实时行情、自选股与价格提醒",
+      "description": "使用 腾讯自选股 的 MCP 地址。服务端公开的 OAuth 元数据声明授权码、PKCE S256 和公开客户端动态注册；需使用自己的账号完成浏览器授权。元数据位置已经核实，未用真实账号完成授权与工具调用。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "OAuth"
+      ],
+      "published": true,
+      "featured": false,
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "oauth2-pkce",
+        "issuer": "https://stockbuddy.qq.com",
+        "scope": "read",
+        "clientName": "DSH MCP Panel",
+        "tokenEndpointAuthMethod": "none"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "tencent_westock",
+          "transport": "streamable-http",
+          "url": "https://stockbuddy.qq.com/cgi/cgi-bin/openai/mcp/mcp",
+          "oauthMetadataUrl": "https://stockbuddy.qq.com/.well-known/oauth-protected-resource"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
       "id": "tongdaxin-mcp",
       "name": "通达信行情（社区）",
       "vendor": "社区连接器",
@@ -2172,6 +2634,38 @@
           "title": "查询市场行情",
           "text": "查询目标证券的最新可用行情和近期走势，标注数据来源与时间，不提供投资建议",
           "server": "tongdaxin"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "tongzhou-research",
+      "name": "同舟金融研究",
+      "vendor": "同舟金融研究",
+      "category": "金融投资",
+      "summary": "公开行情、研报与投研材料检索",
+      "description": "使用 同舟金融研究 的远程 MCP 地址。服务端返回 OAuth 受保护资源元数据，支持 PKCE S256 与公开客户端动态注册；需使用自己的账号完成浏览器授权。尚未进行真实账号登录验证。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商 MCP"
+      ],
+      "published": true,
+      "featured": false,
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "oauth2-pkce",
+        "issuer": "https://mcp-gateway.textmind-gz.com",
+        "scope": "research:read",
+        "clientName": "DSH MCP Panel",
+        "tokenEndpointAuthMethod": "none"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "tongzhou_research",
+          "transport": "streamable-http",
+          "url": "https://mcp-gateway.textmind-gz.com/mcp/tongzhou-research"
         }
       ]
     },
@@ -2224,6 +2718,88 @@
             "TUSHARE_TOKEN": "token"
           },
           "transport": "stdio"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "tushare-pro",
+      "name": "Tushare 官方 MCP",
+      "vendor": "Tushare",
+      "category": "金融投资",
+      "summary": "股票、基金、财务与宏观数据",
+      "description": "使用 Tushare 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://tushare.pro/weborder/#/login?reg=wb",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "api-key",
+        "credentialFields": [
+          {
+            "key": "token",
+            "label": "Tushare Token",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何获取 Tushare Token？"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "tushare_pro",
+          "transport": "streamable-http",
+          "url": "https://api.tushare.pro/mcp/",
+          "credentialQueryBindings": {
+            "token": "token"
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "wallstreetcn",
+      "name": "华尔街见闻 MCP",
+      "vendor": "华尔街见闻",
+      "category": "金融投资",
+      "summary": "财经资讯与 A 股异动归因",
+      "description": "使用 华尔街见闻 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。 此端点或请求头带 WorkBuddy 渠道标识，服务商可能限制第三方客户端。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://wallstreetcn.com/org-mcp/token",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "bearer",
+        "credentialFields": [
+          {
+            "key": "token",
+            "label": "Access Token",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何获取华尔街见闻MCP并获取授权token"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "wallstreetcn",
+          "transport": "streamable-http",
+          "url": "https://xgb-mcp-api.xuangubao.cn/mcp",
+          "headers": {
+            "X-WMCP-Client": "wbwscn"
+          }
         }
       ]
     },
@@ -2299,6 +2875,47 @@
           "title": "查询企业通讯录",
           "text": "只读查询企业微信通讯录中与目标部门相关的公开工作信息；未经我确认不要发消息、添加客户或修改任何数据",
           "server": "wecom"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "wind-alice",
+      "name": "Wind Alice 万得金融数据",
+      "vendor": "Wind 万得",
+      "category": "金融投资",
+      "summary": "股票、债券、基金与宏观金融数据",
+      "description": "使用 Wind 万得 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。 此端点或请求头带 WorkBuddy 渠道标识，服务商可能限制第三方客户端。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://aifinmarket.wind.com.cn/#/user/overview",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "bearer",
+        "credentialFields": [
+          {
+            "key": "token",
+            "label": "Wind API Key",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何获取 API Key？"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "wind_alice",
+          "transport": "streamable-http",
+          "url": "https://mcp.wind.com.cn/vserver_workbuddy/mcp/",
+          "headers": {
+            "Accept": "application/json, text/event-stream"
+          }
         }
       ]
     },
@@ -2421,6 +3038,85 @@
           "title": "检查文档权限",
           "text": "使用 WPS 云文档 MCP 查看我指定文件的元信息和当前权限；未经我确认，不要新增、删除或修改任何权限",
           "server": "wps-docs"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "xinhua-finance",
+      "name": "新华财经资讯 MCP",
+      "vendor": "新华财经",
+      "category": "金融投资",
+      "summary": "公告、新闻与政策检索",
+      "description": "使用 新华财经 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://docs.qq.com/doc/DQndiT2RJZUF1RXpQ",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "bearer",
+        "credentialFields": [
+          {
+            "key": "token",
+            "label": "新华财经 API Key",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何获取新华财经 API Key？"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "xinhua_finance",
+          "transport": "streamable-http",
+          "url": "https://mcp.cnfic.com.cn/mcp-servers/xhcj-mcp-announcements-news-policy"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "yingmi-mcp",
+      "name": "盈米 MCP",
+      "vendor": "盈米基金",
+      "category": "金融投资",
+      "summary": "基金与市场数据、组合分析",
+      "description": "使用 盈米基金 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。地址与鉴权方式来自本机 WorkBuddy 市场模板，尚未用独立 DSH 账号验证实际工具和数据权限。",
+      "tags": [
+        "金融",
+        "远程 MCP",
+        "服务商凭据"
+      ],
+      "published": true,
+      "featured": false,
+      "homepage": "https://qieman.com/mcp",
+      "probeStatus": "unverified",
+      "auth": {
+        "mode": "api-key",
+        "credentialFields": [
+          {
+            "key": "apiKey",
+            "label": "盈米 API Key",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何获取 API Key？"
+      },
+      "servers": [
+        {
+          "serverKey": "main",
+          "serverName": "yingmi_mcp",
+          "transport": "streamable-http",
+          "url": "https://stargate.yingmi.com/mcp/v2",
+          "credentialQueryBindings": {
+            "apiKey": "apiKey"
+          }
         }
       ]
     },

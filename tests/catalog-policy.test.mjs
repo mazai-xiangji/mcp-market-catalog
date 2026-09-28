@@ -15,9 +15,29 @@ test('the published market contains the selected domestic connectors', () => {
     'qq-mail', 'seedance', 'seedream-image-generation', 'shopline-developer-mcp',
     'stock-analysis', 'tencent-docs', 'tongdaxin-mcp', 'tushare', 'wecom',
     'wind-stock-data', 'wps-docs', 'yingmi-wealth-management',
+    'tushare-pro', 'xinhua-finance', 'gildata', 'yingmi-mcp', 'wind-alice',
+    'gangtise-openapi', 'datayes', 'agentearth', 'finchina', 'sumscope',
+    'wallstreetcn',
+    'efunds-official', 'huize-insurance', 'orientfutures', 'tongzhou-research', 'eastmoney-miaoxiang',
+    'tencent-westock', 'finenter-research', 'alphapai',
   ])
   assert.deepEqual(ids, expected)
   assert.equal(catalog.connectors.length, ids.size)
+})
+
+test('anonymous and OAuth finance endpoints preserve their observed authorization mode', () => {
+  for (const id of ['efunds-official', 'huize-insurance', 'orientfutures']) {
+    const item = catalog.connectors.find(connector => connector.id === id)
+    assert.equal(item?.auth.mode, 'none', id)
+    assert.equal(item?.probeStatus, 'reachable', id)
+  }
+  assert.equal(catalog.connectors.find(item => item.id === 'tongzhou-research')?.auth.scope, 'research:read')
+  assert.equal(catalog.connectors.find(item => item.id === 'eastmoney-miaoxiang')?.auth.mode, 'oauth2-pkce')
+  for (const id of ['tencent-westock', 'finenter-research', 'alphapai']) {
+    const item = catalog.connectors.find(connector => connector.id === id)
+    assert.equal(item?.auth.mode, 'oauth2-pkce', id)
+    assert.match(item?.servers[0].oauthMetadataUrl ?? '', /^https:\/\//)
+  }
 })
 
 test('the official HiThink connector matches the published MCP endpoints', () => {
@@ -33,4 +53,20 @@ test('the official HiThink connector matches the published MCP endpoints', () =>
     'https://fuyao.aicubes.cn/mcp/futures',
     'https://fuyao.aicubes.cn/mcp/options',
   ])
+})
+
+test('provider credential MCP cards use the documented endpoints without embedded secrets', () => {
+  const expected = new Set(['tushare-pro', 'xinhua-finance', 'gildata', 'yingmi-mcp', 'wind-alice', 'gangtise-openapi', 'datayes', 'agentearth', 'finchina', 'sumscope', 'wallstreetcn'])
+  for (const id of expected) {
+    const item = catalog.connectors.find(connector => connector.id === id)
+    assert.ok(item, `missing ${id}`)
+    assert.equal(item.published, true)
+    assert.match(item.servers[0].url, /^https:\/\//)
+    assert.doesNotMatch(JSON.stringify(item), /\$\{|Bearer \S{12,}/)
+    assert.ok(item.homepage, `missing credential help for ${id}`)
+    assert.ok(['api-key', 'bearer'].includes(item.auth.mode))
+  }
+  assert.deepEqual(catalog.connectors.find(item => item.id === 'gangtise-openapi').servers[0].credentialHeaderBindings,
+    { accessKey: 'accessKey', secretKey: 'secretKey' })
+  assert.deepEqual(catalog.connectors.find(item => item.id === 'tushare-pro').servers[0].credentialQueryBindings, { token: 'token' })
 })

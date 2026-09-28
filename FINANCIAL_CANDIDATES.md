@@ -1,34 +1,34 @@
-# 金融 MCP 候选核对
+# 金融 MCP 接入核对
 
-核对日期：2026-09-28。市场卡片必须有可核实的 MCP URL 或本地启动命令，以及对应鉴权说明。产品本身存在、第三方市场列名或搜索结果中的名称，都不足以构成可连接配置。以下“待补”表示此次未核实到足以安全配置的信息，不表示该机构没有 MCP 产品。
+核对日期：2026-09-28。依据本机 WorkBuddy 官方市场下载的 `connectors/<id>/mcp.json` 与 `token-schema.json` 模板，以及对无凭据端点的标准 MCP `initialize` 请求和 OAuth 公开元数据的只读检查。模板只提供连接方式；“WorkBuddy 市场收录”不等于服务商已确认 DSH 客户端获得相同渠道权限。本次没有读取用户凭据，也没有用真实账号完成授权或调用付费数据。
 
-| 用户提出的服务 | 本次处理 | 依据或待补信息 |
+| 用户提出的服务 | DSH 市场状态 | 核对情况 |
 | --- | --- | --- |
-| 通达信 | 保留现有社区连接器，未冒充官方 | 现有 `tongdaxin-mcp` 明确使用社区 `tdx-mcp` 包。通达信 [TdxClaw 官网](https://www.tdx.com.cn/tdxclaw/)及[帮助中心](https://help.tdx.com.cn/tdxclaw/)提及自有 AI 数据服务，但没有核实到面向第三方客户端的完整 MCP 配置。 |
-| 腾讯自选股 | 待补 | 需要腾讯官方 MCP 接入文档、URL 或包名及鉴权方式。 |
-| Tushare | 保留现有社区连接器 | `tushare` 使用第三方 `@tushare/mcp`，调用 TuShare 数据；不标为官方 MCP。 |
-| 新华财经资讯 MCP | 待补 | 需要新华财经官方公开的 MCP 接入配置。 |
-| 恒生聚源 MCP | 待补 | 需要恒生聚源官方公开的 MCP 接入配置。 |
-| 同舟金融研究 | 待补 | 需要发布者和 MCP 接入配置。 |
-| 盈米 MCP | 保留现有连接器 | 现有 `yingmi-wealth-management` 使用[盈米 MCP 页面](https://qieman.com/mcp)所指服务和 API Key。 |
-| Wind Alice 万得金融数据 | 保留现有 Wind 数据 MCP；Alice 暂不单列 | 现有 `wind-stock-data` 指向万得 MCP。万得 [wind-skills](https://github.com/Wind-Information-Co-Ltd/wind-skills) 文档将 Alice 描述为 A2A Agent，而非独立 MCP Server。 |
-| 东方财富妙想 MCP | 待补 | 现有 `eastmoney-mcp` 是社区量化连接器，不能当作“妙想”官方服务。需要东方财富发布的第三方 MCP 地址、启动命令和鉴权说明。 |
-| 进门投研 | 待补 | 需要发布者和 MCP 接入配置。 |
-| Gangtise 投研 | 保留现有连接器 | 现有 `gangtise` 基于 [Gangtise 发布者仓库](https://github.com/gangtiser/gangtise-mcp)。 |
-| PandaData 金融数据 | 待补 | 需要发布者和 MCP 接入配置。 |
-| 晨星 Morningstar | 待补 | 用户明确将其列为候选，但此次未核实到官方公开 MCP 接入配置，因此没有加入市场。 |
-| 同花顺 iFinD 金融数据查询 | 新增同花顺官方金融数据 MCP；iFinD 待补 | [同花顺官方 MCP 文档](https://github.com/HiThink-Tech/Financial-API/blob/main/docs/mcp.md)列出六个托管端点及 `X-api-key` 鉴权。该服务没有声明等同于 iFinD 终端或其订阅数据。 |
-| 大智慧 MCP | 待补 | 需要大智慧官方公开的 MCP 接入配置。 |
-| 通联数据 | 待补 | 需要通联数据官方公开的 MCP 接入配置。 |
-| Alpha 派投研助手 | 待补 | 需要发布者和 MCP 接入配置。 |
-| 易方达基金 | 待补 | 需要易方达官方公开的 MCP 接入配置。 |
-| AgentEarth 金融电商社媒工具 | 待补 | 需要发布者和 MCP 接入配置。 |
-| 财汇金融与风险数据 | 待补 | 需要财汇官方公开的 MCP 接入配置。 |
-| 森浦 qeubee 金融数据 | 待补 | 需要森浦官方公开的 MCP 接入配置。 |
-| 广发证券 | 待补 | 需要广发证券官方公开的 MCP 接入配置。 |
-| 华尔街见闻 | 待补 | 需要华尔街见闻官方公开的 MCP 接入配置。 |
-| 今日投资金融数据 | 待补 | 需要今日投资官方公开的 MCP 接入配置。 |
-| 慧择保险产品推荐 | 待补 | 需要慧择官方公开的 MCP 接入配置。 |
-| 东证期货 | 待补 | 需要东证期货官方公开的 MCP 接入配置。 |
+| 通达信 | 保留社区 `tongdaxin-mcp`；官方入口暂缓 | 官方端点返回 OAuth 401，但授权页含 `workbuddy` 渠道路径。 |
+| 腾讯自选股 | 新增 `tencent-westock`，OAuth | 公开元数据声明 PKCE S256、动态注册、`read` scope。 |
+| Tushare | 新增 `tushare-pro`，Token | 官方 MCP 地址，Token 注入 URL `token` 查询参数；社区版 `tushare` 保留。 |
+| 新华财经资讯 MCP | 新增 `xinhua-finance`，API Key | 服务商地址，`Authorization: Bearer`。 |
+| 恒生聚源 MCP | 新增 `gildata`，Token | 服务商地址，Token 注入 URL `token` 查询参数。 |
+| 同舟金融研究 | 新增 `tongzhou-research`，OAuth | 公开元数据与面板 PKCE 流程兼容，`research:read` scope。 |
+| 盈米 MCP | 新增 `yingmi-mcp`，API Key | 服务商地址，Key 注入 URL `apiKey` 查询参数；原有盈米卡片保留。 |
+| Wind Alice 万得金融数据 | 新增 `wind-alice`，API Key | 地址含 `/vserver_workbuddy/`，独立客户端使用权限待服务商确认；原 Wind 股票数据卡片保留。 |
+| 东方财富妙想 MCP | 新增 `eastmoney-miaoxiang`，OAuth | 公开元数据与面板 PKCE 流程兼容；社区量化卡片仍单独标识。 |
+| 进门投研 | 新增 `finenter-research`，OAuth | 公开元数据声明 PKCE、动态注册及数据查询 scope；受保护资源元数据在独立域名。 |
+| Gangtise 投研 | 新增 `gangtise-openapi`，双 Key | 同时填写 Access Key、Secret Key，分别注入同名请求头；原社区卡片保留。 |
+| PandaData 金融数据 | 暂缓 | OAuth 元数据仅声明客户端密钥认证，面板当前只支持公开客户端。 |
+| 晨星 Morningstar | 暂缓 | OAuth 元数据可发现，但公开 scope 只有 OIDC 类权限；MCP 数据权限范围需服务商确认。 |
+| 同花顺 iFinD 金融数据查询 | 暂缓 iFinD；保留 `hithink-finance` | iFinD 端点与 issuer 带 `ifcwb` 渠道路径；同花顺官方公开的另一组金融数据 MCP 已单列。 |
+| 大智慧 MCP | 暂缓 | 授权 scope 仅列 WorkBuddy 等指定渠道，尚无 DSH scope。 |
+| 通联数据 | 新增 `datayes`，Token | 服务商地址，`Authorization: Bearer`。 |
+| Alpha 派投研助手 | 新增 `alphapai`，OAuth | 公开元数据声明 PKCE、动态注册、`read` scope；元数据位于服务商自定义路径。 |
+| 易方达基金 | 新增 `efunds-official`，免登录 | 无凭据 `initialize` 返回 MCP 成功响应。 |
+| AgentEarth 金融电商社媒工具 | 新增 `agentearth`，API Key | 服务商地址，`X-Api-Key` 请求头。 |
+| 财汇金融与风险数据 | 新增 `finchina`，API Key | 服务商地址，`x-api-key` 请求头；没有带入 WorkBuddy 的静态渠道请求头。 |
+| 森浦 qeubee 金融数据 | 新增 `sumscope`，Access Key | 服务商地址，`X-Access-Key` 请求头。 |
+| 广发证券 | 暂缓 | OAuth `resource_metadata` 返回 403，模板还带 `x-gf-channel: workbuddy-area`。 |
+| 华尔街见闻 | 新增 `wallstreetcn`，Token | 服务商地址与 Bearer Token；模板带 `X-WMCP-Client: wbwscn` 渠道头，独立权限待确认。 |
+| 今日投资金融数据 | 暂缓 | 地址带 `source=work_buddy`；授权服务器标准元数据返回 404。 |
+| 慧择保险产品推荐 | 新增 `huize-insurance`，免登录 | 无凭据 `initialize` 返回 MCP 成功响应。 |
+| 东证期货 | 新增 `orientfutures`，免登录 | 无凭据 `initialize` 返回 MCP 成功响应。 |
 
-新增的同花顺卡片采用[官方六个端点及配置示例](https://github.com/HiThink-Tech/Financial-API/blob/main/docs/mcp.md)。无 API Key 的普通 GET 请求返回 HTTP 405，只能说明地址对 GET 不开放；没有用户凭据，本次未验证实际 MCP 工具列表或账号权限，故 `probeStatus` 保持 `unverified`。
+市场卡片中的 `homepage` 是服务商凭据获取页面；面板的凭据表单会提供可点击链接。Token 只在 DSH Host 凭据存储中保存，连接时由 Host 注入 Header 或 URL 查询参数；公开 `catalog.json` 不含实际凭据。所有新增凭据及 OAuth 卡片在没有用户账户授权时均标记为 `unverified`。`reachable` 只表示匿名 MCP 初始化成功，不代表每个工具或数据权限都可用。
