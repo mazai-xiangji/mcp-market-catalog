@@ -37,19 +37,38 @@ test('the published market contains the selected domestic connectors', () => {
   assert.equal(catalog.connectors.length, ids.size)
 })
 
-test('anonymous and OAuth finance endpoints preserve their observed authorization mode', () => {
+test('anonymous finance endpoints preserve their observed authorization mode', () => {
   for (const id of ['efunds-official', 'huize-insurance', 'orientfutures']) {
     const item = catalog.connectors.find(connector => connector.id === id)
     assert.equal(item?.auth.mode, 'none', id)
     assert.equal(item?.probeStatus, 'reachable', id)
   }
   assert.equal(catalog.connectors.find(item => item.id === 'tongzhou-research')?.auth.scope, 'research:read')
-  assert.equal(catalog.connectors.find(item => item.id === 'eastmoney-miaoxiang')?.auth.mode, 'oauth2-pkce')
   for (const id of ['tencent-westock', 'finenter-research', 'alphapai']) {
     const item = catalog.connectors.find(connector => connector.id === id)
     assert.equal(item?.auth.mode, 'oauth2-pkce', id)
     assert.match(item?.servers[0].oauthMetadataUrl ?? '', /^https:\/\//)
   }
+})
+
+test('Tongdaxin and Eastmoney use the requested remote API key endpoints', () => {
+  const tongdaxin = catalog.connectors.find(item => item.id === 'tongdaxin-mcp')
+  assert.equal(tongdaxin?.name, '通达信')
+  assert.equal(tongdaxin?.auth.mode, 'api-key')
+  assert.equal(tongdaxin?.auth.credentialHelpLabel, '如何获取 API Key？')
+  assert.equal(tongdaxin?.homepage, 'https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_mcp')
+  assert.equal(tongdaxin?.servers[0].transport, 'streamable-http')
+  assert.equal(tongdaxin?.servers[0].url, 'https://mcp.tdx.com.cn:3001/mcp')
+
+  const eastmoney = catalog.connectors.find(item => item.id === 'eastmoney-miaoxiang')
+  assert.equal(eastmoney?.auth.mode, 'api-key')
+  assert.equal(eastmoney?.auth.apiKeyHeader, 'em_api_key')
+  assert.equal(eastmoney?.auth.credentialEnvName, 'EM_API_KEY')
+  assert.equal(eastmoney?.auth.credentialHelpLabel, '如何获取 API Key？')
+  assert.equal(eastmoney?.homepage, 'https://choice.eastmoney.com/mcp/')
+  assert.deepEqual(eastmoney?.servers.map(server => [server.serverName, server.transport, server.url]), [
+    ['mx-ds-mcp', 'streamable-http', 'https://mxapi.eastmoney.com/mxds/mcp'],
+  ])
 })
 
 test('Jinshuju OAuth uses its published root resource metadata', () => {

@@ -618,7 +618,7 @@
       "icon": "https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/assets/eastmoney-miaoxiang.png",
       "category": "金融投资",
       "summary": "股票、基金、宏观与投研数据查询",
-      "description": "使用 东方财富 的远程 MCP 地址。服务端返回 OAuth 受保护资源元数据，支持 PKCE S256 与公开客户端动态注册；需使用自己的账号完成浏览器授权。尚未进行真实账号登录验证。",
+      "description": "使用东方财富妙想远程 MCP 服务。优先读取环境变量 EM_API_KEY；未设置时填写自己的 API Key。需在东方财富开通相应权限。",
       "tags": [
         "金融",
         "远程 MCP",
@@ -626,20 +626,28 @@
       ],
       "published": true,
       "featured": false,
+      "homepage": "https://choice.eastmoney.com/mcp/",
       "probeStatus": "unverified",
       "auth": {
-        "mode": "oauth2-pkce",
-        "issuer": "https://agent.dfcfs.com",
-        "scope": "mcp:tools",
-        "clientName": "DSH MCP Panel",
-        "tokenEndpointAuthMethod": "none"
+        "mode": "api-key",
+        "apiKeyHeader": "em_api_key",
+        "credentialEnvName": "EM_API_KEY",
+        "credentialFields": [
+          {
+            "key": "apiKey",
+            "label": "东方财富 API Key",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何获取 API Key？"
       },
       "servers": [
         {
           "serverKey": "main",
-          "serverName": "eastmoney_miaoxiang",
+          "serverName": "mx-ds-mcp",
           "transport": "streamable-http",
-          "url": "https://mxapi.eastmoney.com/mxds/v2/mcp"
+          "url": "https://mxapi.eastmoney.com/mxds/mcp"
         }
       ]
     },
@@ -700,7 +708,7 @@
       "id": "efunds-official",
       "name": "易方达基金 MCP",
       "vendor": "易方达基金",
-      "icon": "https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/assets/efunds-official.ico",
+      "icon": "https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/assets/efunds_logo.png",
       "category": "金融投资",
       "summary": "基金概况、业绩、持仓与投研观点",
       "description": "使用 易方达基金 的远程 MCP 地址。已在无凭据标准 MCP initialize 请求中确认可访问；工具能力和数据权限取决于服务端。",
@@ -2164,38 +2172,42 @@
     {
       "schemaVersion": 1,
       "id": "tongdaxin-mcp",
-      "name": "通达信行情（社区）",
-      "vendor": "社区连接器",
+      "name": "通达信",
+      "vendor": "通达信",
       "icon": "https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/assets/tongdaxin-mcp.ico",
       "category": "金融投资",
       "summary": "A 股行情 / 分时 / K 线 / 市场数据",
-      "description": "通过社区 tdx-mcp Python 包启动本地 stdio Server，连接公开行情服务器查询 A 股行情、分时与 K 线数据。该连接器并非通达信官方产品，仅适合个人学习和研究；可用性受公共行情源影响，不构成投资建议。",
+      "description": "使用通达信远程 MCP 服务查询 A 股行情、分时与 K 线数据；连接前需填写自己的 API Key。行情数据请核对时间，不构成投资建议。",
       "tags": [
         "通达信",
         "A股",
         "行情",
         "K线",
-        "stdio",
-        "社区 MCP"
+        "远程 MCP",
+        "服务商 MCP"
       ],
       "published": true,
       "featured": false,
-      "homepage": "https://pypi.org/project/tdx-mcp/",
+      "homepage": "https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_mcp",
       "probeStatus": "unverified",
       "auth": {
-        "mode": "none"
+        "mode": "api-key",
+        "credentialFields": [
+          {
+            "key": "apiKey",
+            "label": "通达信 API Key",
+            "required": true,
+            "secret": true
+          }
+        ],
+        "credentialHelpLabel": "如何获取 API Key？"
       },
       "servers": [
         {
           "serverKey": "tongdaxin",
-          "serverName": "tongdaxin-community",
-          "command": "uvx",
-          "args": [
-            "--from",
-            "tdx-mcp",
-            "tdx-mcp"
-          ],
-          "transport": "stdio"
+          "serverName": "tongdaxin",
+          "transport": "streamable-http",
+          "url": "https://mcp.tdx.com.cn:3001/mcp"
         }
       ],
       "prompts": [
@@ -2403,7 +2415,7 @@
       "id": "wind-alice",
       "name": "Wind Alice 万得金融数据",
       "vendor": "Wind 万得",
-      "icon": "https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/assets/wind-stock-data.ico",
+      "icon": "https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/assets/Wind-icon.jpg",
       "category": "金融投资",
       "summary": "股票、债券、基金与宏观金融数据",
       "description": "使用 Wind 万得 提供的 MCP 地址；需在服务商页面开通并填写自己的凭据。",
@@ -2437,76 +2449,6 @@
           "headers": {
             "Accept": "application/json, text/event-stream"
           }
-        }
-      ]
-    },
-    {
-      "schemaVersion": 1,
-      "id": "wind-stock-data",
-      "name": "Wind·股票数据",
-      "vendor": "Wind 万得",
-      "icon": "https://raw.githubusercontent.com/mazai-xiangji/mcp-market-catalog/main/assets/wind-stock-data.ico",
-      "category": "金融投资",
-      "summary": "全球股票档案 / 行情 / 技术指标 / 财务与公司事件",
-      "description": "接入万得股票数据服务，覆盖公司档案、股本与股东、行情报价、技术指标、基本面财务、公司事件及风险波动性数据。需使用 Wind Key，服务权限以万得账户实际开通范围为准。",
-      "tags": [
-        "股票",
-        "行情",
-        "财务",
-        "技术指标",
-        "第三方收录"
-      ],
-      "published": true,
-      "featured": true,
-      "homepage": "https://aifinmarket.wind.com.cn/#/market?tab=mcps&detailType=mcp&detailId=wind_stock_data-0",
-      "probeStatus": "unverified",
-      "promptVariables": [
-        {
-          "name": "stock",
-          "label": "股票名称或代码",
-          "default": "贵州茅台（600519.SH）",
-          "placeholder": "例如：贵州茅台（600519.SH）",
-          "required": true
-        }
-      ],
-      "auth": {
-        "mode": "bearer",
-        "credentialName": "Wind API Key（个人密钥）",
-        "credentialPlaceholder": "请输入您的个人 Wind API Key",
-        "credentialDescription": "用于访问 Wind MCP 的个人访问令牌；仅保存在 DSH 本机。",
-        "credentialHelpLabel": "如何获取 Wind API Key？"
-      },
-      "servers": [
-        {
-          "serverKey": "stock-data",
-          "url": "https://mcp.wind.com.cn/vserver_stock_data/mcp/",
-          "serverName": "wind_stock_data",
-          "transport": "streamable-http",
-          "headers": {
-            "Accept": "application/json, text/event-stream"
-          }
-        }
-      ],
-      "prompts": [
-        {
-          "title": "公司档案与行业",
-          "text": "用 Wind 股票数据 MCP 查询 {{stock}} 的公司档案、主营业务和所属行业",
-          "server": "stock-data"
-        },
-        {
-          "title": "最新行情",
-          "text": "用 Wind 股票数据 MCP 查询 {{stock}} 的最新价格、成交量、换手率和买卖报价",
-          "server": "stock-data"
-        },
-        {
-          "title": "技术与波动指标",
-          "text": "用 Wind 股票数据 MCP 查询 {{stock}} 最近 20 个交易日的 MACD、RSI、波动率和涨跌幅",
-          "server": "stock-data"
-        },
-        {
-          "title": "核心财务指标",
-          "text": "用 Wind 股票数据 MCP 查询 {{stock}} 最新报告期的营业收入、净利润、ROE 和现金流",
-          "server": "stock-data"
         }
       ]
     },

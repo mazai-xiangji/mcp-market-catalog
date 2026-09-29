@@ -1,0 +1,25 @@
+1、通达信行情（社区）：
+改为“通达信”，用 streamable-http 来连接（https://mcp.tdx.com.cn:3001/mcp）  也是显示”如何获取 API Key？"，点击后跳转“https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_mcp”
+
+
+2、东方财富妙想MCP：
+改为用  streamable-http 来连接，信息如下：
+| 项目 | 值 |
+|------|----|
+| MCP Server 名称 | `mx-ds-mcp` |
+| MCP Server URL | `https://mxapi.eastmoney.com/mxds/mcp` |
+| 传输协议 | StreamableHttp |
+| 认证请求头 | `em_api_key: <EM_API_KEY>`（优先使用环境变量 `EM_API_KEY`；未设置时由用户提供） 
+也是显示”如何获取 API Key？"，点击后跳转：https://choice.eastmoney.com/mcp/
+
+
+
+
+没有配置的：
+PandaData 金融数据
+晨星 Morningstar
+同花顺iFinD金融数据查询
+大智慧MCP
+森浦qeubee金融数据
+广发证券
+今日投资金融数据
